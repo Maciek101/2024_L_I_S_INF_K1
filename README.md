@@ -1,5 +1,7 @@
 # Simple Flask App
 
+Autor: Maciek (2024_L_I_S_INF_K1)
+
 Aplikacja Dydaktyczna wyświetlająca imię i wiadomość w różnych formatach dla zajęć
 o Continuous Integration, Continuous Delivery i Continuous Deployment.
 
@@ -28,6 +30,11 @@ o Continuous Integration, Continuous Delivery i Continuous Deployment.
 
   # albo:
   $ PYTHONPATH=. FLASK_APP=hello_world flask run
+  
+  * **Uruchamianie za pomocą Docker i Make:**
+  $ make docker_build
+  $ make docker_run
+  
   ```
 
 - Uruchamianie testów (see: http://doc.pytest.org/en/latest/capture.html):
@@ -51,36 +58,9 @@ o Continuous Integration, Continuous Delivery i Continuous Deployment.
   $ source .venv/Source/activate
   ```
 
-- Integracja z TravisCI:
+- Integracja z CircleCI:
 
   ```
-  # miejsce na twoje notatki
+  # Projekt wykorzystuje CircleCI do automatycznego budowania obrazu Docker i przesyłania go na Docker Hub po każdym pushu do gałęzi master.
   ```
 
-# Pomocnicze
-
-## Ubuntu
-
-- Instalacja dockera: [dockerce howto](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
-
-## Centos
-
-- Instalacja docker-a:
-
-  ```
-  $ yum remove docker \
-        docker-common \
-        container-selinux \
-        docker-selinux \
-        docker-engine
-
-  $ yum install -y yum-utils
-
-  $ yum-config-manager \
-      --add-repo \
-      https://download.docker.com/linux/centos/docker-ce.repo
-
-  $ yum makecache fast
-  $ yum install -y docker-ce
-  $ systemctl start docker
-  ```
